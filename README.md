@@ -49,36 +49,36 @@ https://youtu.be/--gfsEindSE
 
 ### Users APP
 -유저별 구매한 기록 
-READ :
+* READ :
   GET메소드를 활용,
 
 ### Products APP
 제품 상세페이지
-READ :
+* READ :
   GET메소드를 활용, pathparameter활용,
   DB 구조상 한 제품 내 옵션 유무에 따라, 옵션 종류에 따라 다른 데이터를 받을 수 있게 구현
 
 ### Orders APP
-CREATE :
+* CREATE :
   주문 작성: POST메소드 활용, 전체주문과 선택주문 모두 가능하게 구현, 예외처리, 트랜잭션활용 관련 장바구니까지 삭제할 수 있도록 구현
 
 ### Reviews APP
-CREATE :
+* CREATE :
     리뷰 작성: POST메소드 활용, 사용자별 이미 리뷰가 완료된 제품에 대한 예외처리
     댓글 작성 : POST메소드 활용
-READ :
+* READ :
     전체리뷰페이지 -GET 메소드 활용, 
     상세리뷰페이지 - GET 메소드 활용, 상세리뷰페이지에 해당되는 댓글, 관련 리뷰까지 보일 수 있게 구현, 조회 수 관련 기능 추가
     리뷰검색     - GET 메소드 활용, 패킹언패킹 개념활용하고 2가지 기준으로 필터를 적용해 리뷰 검색
-UPDATE : PATCH메소드 활용, pathparameter에서 주는 review_id와 token을 이용한 user_id를 이용해 DB조회후 json데이터로 보내준 리뷰내용으로 수정, 예외처리
-DELETE : DELETE메소드 활용, token에서 받은 user_id, pathparameter로 받은 review_id를 이용해 DB조회하여 delete메소드 활용해서 삭제 예외처리
+* UPDATE : PATCH메소드 활용, pathparameter에서 주는 review_id와 token을 이용한 user_id를 이용해 DB조회후 json데이터로 보내준 리뷰내용으로 수정, 예외처리
+* DELETE : DELETE메소드 활용, token에서 받은 user_id, pathparameter로 받은 review_id를 이용해 DB조회하여 delete메소드 활용해서 삭제 예외처리
 
 
 ### Carts APP
-READ : GET메소드 활용, userid로 조회, user_id는 token을 이용하여 획득, 카트에 담긴 물건이 24시간이 지난 이후에는 자동삭제될 수 있도록 구현
-CREATE : POST메소드 활용, body에서 json형식으로 제품id와 수량을 받고 token을 이용해 id값을 추가해 DB에 저장, get_or_create 메소드를 활용 존재하지않을땐 생성하고, 이미 존재할땐 수량만 업데이트
-UPDATE : PATCH메소드 활용, pathparameter에서 주는 cart_id와 token을 이용한 user_id를 이용해 DB조회후 json데이터로 보내준 제품수량 수정, 재고 관련 예외처리
-DELETE : DELETE메소드 활용, token에서 받은 user_id, pathparameter로 받은 cart_id를 이용해 DB조회하여 delete메소드 활용해서 삭제, 예외처리
+* READ : GET메소드 활용, userid로 조회, user_id는 token을 이용하여 획득, 카트에 담긴 물건이 24시간이 지난 이후에는 자동삭제될 수 있도록 구현
+* CREATE : POST메소드 활용, body에서 json형식으로 제품id와 수량을 받고 token을 이용해 id값을 추가해 DB에 저장, get_or_create 메소드를 활용 존재하지않을땐 생성하고, 이미 존재할땐 수량만 업데이트
+* UPDATE : PATCH메소드 활용, pathparameter에서 주는 cart_id와 token을 이용한 user_id를 이용해 DB조회후 json데이터로 보내준 제품수량 수정, 재고 관련 예외처리
+* DELETE : DELETE메소드 활용, token에서 받은 user_id, pathparameter로 받은 cart_id를 이용해 DB조회하여 delete메소드 활용해서 삭제, 예외처리
 
 ## 🌼 AWS EC2, RDS 활용 배포🌼
 
